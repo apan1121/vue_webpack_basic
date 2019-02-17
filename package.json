@@ -1,5 +1,5 @@
 {
-  "name": "drawcard",
+  "name": "vue_webpack",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {

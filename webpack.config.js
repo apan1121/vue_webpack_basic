@@ -77,7 +77,7 @@ const deleteFolder = function(path) {
 deleteFolder(DIST_DIR);
 
 /* 在 public 中建立 js css img */
-var public_defaul_folder = [ '', 'js', 'css', 'img', 'mp3'];
+var public_defaul_folder = [ '', 'js', 'css', 'img'];
 public_defaul_folder.map(function(keyName){
     const dir = path.resolve(__dirname, 'dist/' + keyName)
     if (!fs.existsSync(dir)){
@@ -128,12 +128,8 @@ if (1) {
     const ICOMOON_FONT_DIR = path.resolve(__dirname, 'src/css/icomoon/');
     const ICOMOON_FONT_PUBLIC_DIR = path.resolve(__dirname, 'dist/css/icomoon/');
 
-    const MP3_DIR = path.resolve(__dirname, 'src/mp3');
-    const MP3_PUBLIC_DIR = path.resolve(__dirname, 'dist/mp3');
-
     const copyEntry = {};
     copyEntry[IMG_DIR] = IMG_DIR_PUBLIC;
-    copyEntry[MP3_DIR] = MP3_PUBLIC_DIR;
     // copyEntry[ICOMOON_FONT_DIR] = ICOMOON_FONT_PUBLIC_DIR;
 
     for (var fromPath in copyEntry) {
