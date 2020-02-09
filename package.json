@@ -37,7 +37,7 @@
     "eslint-watch": "^5.1.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fingerprintjs2": "^1.8.6",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "jquery-circle-progress": "^1.2.2",
     "js-cookie": "^2.2.0",
     "less-loader": "^5.0.0",
