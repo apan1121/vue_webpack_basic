@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack --mode development --progress --colors --hot --watch",
-    "prod": "webpack --mode production --progress "
+    "build:dev": "webpack --mode development --config webpack.config.js --colors --hot --watch",
+    "build:prod": "webpack --mode production --config webpack.config.js --colors"
   },
   "author": "",
   "license": "ISC",
@@ -40,6 +40,8 @@
     "jquery": "^3.3.1",
     "jquery-circle-progress": "^1.2.2",
     "js-cookie": "^2.2.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -54,7 +56,11 @@
     "vue-template-compiler": "^2.5.17",
     "vuex": "^3.0.1",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.2",
+    "webpackbar": "^4.0.0",
+    "yargs-parser": "^16.1.0"
   },
   "description": ""
 }
