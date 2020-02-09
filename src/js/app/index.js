@@ -1,42 +1,41 @@
 import Vue from 'vue';
-import app from './app';
 import { mapActions, mapGetters } from 'vuex';
 
-import {createStore} from 'lib/store/index';
-
-const store = createStore([
-    "common",
-]);
+import { createStore } from 'lib/store/index';
+import app from './app';
 
 import 'jquery';
 import 'bootstrap';
 
-let saveToLocalStorageTimer = null;
+const store = createStore([
+    'common',
+]);
 
-var Page = new Vue({
+
+const Page = new Vue({
     el: '#appBox',
-    data: function() {
+    components: {
+    },
+    data(){
         return {
             popstats: false,
-        }
+        };
     },
-    methods: {
-        init: function(){
-
-        },
+    computed: {
+        ...mapGetters([
+        ]),
     },
     watch: {
 
     },
-    computed: {
-        ...mapGetters([
-        ])
-    },
-    mounted() {
+    mounted(){
         const that = this;
         that.init();
     },
-    components: {
+    methods: {
+        init(){
+            console.log('init');
+        },
     },
     store,
 });

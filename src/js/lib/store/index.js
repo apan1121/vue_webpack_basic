@@ -9,7 +9,7 @@ import gettersStorage from './getters/index';
 
 Vue.use(Vuex);
 export default {
-}
+};
 
 export const createStore = (params) => {
     let actions = {};
@@ -17,29 +17,29 @@ export const createStore = (params) => {
     let mutations = {};
     let getters = {};
 
-    params.forEach(function(key){
-        let keys = key.split(".");
-        let tmpActions = {...actionsStorage};
-        let tmpState = {...stateStorage};
-        let tmpMutations = {...mutationsStorage};
-        let tmpGetters = {...gettersStorage};
-        while ( keys.length > 0 ) {
+    params.forEach((key) => {
+        const keys = key.split('.');
+        let tmpActions = { ...actionsStorage };
+        let tmpState = { ...stateStorage };
+        let tmpMutations = { ...mutationsStorage };
+        let tmpGetters = { ...gettersStorage };
+        while (keys.length > 0) {
             key = keys.shift();
 
-            if ([undefined].indexOf(tmpActions[key]) == -1) {
-                 tmpActions = tmpActions[key];
+            if ([undefined].indexOf(tmpActions[key]) === -1) {
+                tmpActions = tmpActions[key];
             }
 
-            if ([undefined].indexOf(tmpState[key]) == -1) {
-                 tmpState = tmpState[key];
+            if ([undefined].indexOf(tmpState[key]) === -1) {
+                tmpState = tmpState[key];
             }
 
-            if ([undefined].indexOf(tmpMutations[key]) == -1) {
-                 tmpMutations = tmpMutations[key];
+            if ([undefined].indexOf(tmpMutations[key]) === -1) {
+                tmpMutations = tmpMutations[key];
             }
 
-            if ([undefined].indexOf(tmpGetters[key]) == -1) {
-                 tmpGetters = tmpGetters[key];
+            if ([undefined].indexOf(tmpGetters[key]) === -1) {
+                tmpGetters = tmpGetters[key];
             }
         }
         actions = Object.assign({}, actions, tmpActions);
@@ -53,10 +53,10 @@ export const createStore = (params) => {
     // }
 
     return new Vuex.Store({
-      actions,
-      state,
-      mutations,
-      getters,
-      struct: true
-    })
+        actions,
+        state,
+        mutations,
+        getters,
+        struct: true,
+    });
 };

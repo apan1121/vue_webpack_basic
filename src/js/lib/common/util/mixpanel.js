@@ -10,12 +10,12 @@ import string from './string';
 
 const mixpanel_modul = {
     data: {
-        identify: "",
+        identify: '',
         tabId: string.getRandomString(10),
         data: null,
     },
     waitFunc: [],
-    actWaitFunc: function(){
+    actWaitFunc(){
         // if (mixpanel_modul.waitFunc.length >= 0) {
         //     console.log("actWaitFunc", mixpanel_modul.waitFunc);
         //     mixpanel_modul.waitFunc.forEach(function(actFunc){
@@ -23,7 +23,7 @@ const mixpanel_modul = {
         //     });
         // }
     },
-    track: function(action, inputData) {
+    track(action, inputData){
 
         // let actionFunc = function(){
         //     let data = { ...mixpanel_modul.data, data: inputData };
@@ -35,6 +35,6 @@ const mixpanel_modul = {
         // } else {
         //     mixpanel_modul.waitFunc.push(actionFunc);
         // }
-    }
+    },
 };
 export default mixpanel_modul;

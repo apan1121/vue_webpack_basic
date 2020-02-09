@@ -1,5 +1,5 @@
 export default {
-    initSystem({ commit }, params) {
-        commit("initSystem", params);
+    initSystem({ commit }, params){
+        commit('initSystem', params);
     },
 };

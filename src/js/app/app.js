@@ -3,10 +3,10 @@ import 'vendor/imgLiquid/imgLiquid';
 
 
 /* 全頁偵測 resize Image */
-var resizeImageTimer = null;
-$("body").on('resizeImg', function(){
+let resizeImageTimer = null;
+$('body').on('resizeImg', () => {
     clearTimeout(resizeImageTimer);
-    resizeImageTimer = setTimeout(function(){
+    resizeImageTimer = setTimeout(() => {
         $('.imgLiquidFill').imgLiquid();
     }, 50);
 });
