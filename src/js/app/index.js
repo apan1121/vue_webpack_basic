@@ -11,13 +11,14 @@ const store = createStore([
     'common',
 ]);
 
-
+console.log(111);
 const Page = new Vue({
     el: '#appBox',
     components: {
     },
     data(){
         return {
+            input: 1,
             popstats: false,
         };
     },
@@ -34,7 +35,7 @@ const Page = new Vue({
     },
     methods: {
         init(){
-            console.log('init');
+            this.input = 2;
         },
     },
     store,
