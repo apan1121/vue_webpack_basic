@@ -61,7 +61,7 @@
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.2",
     "webpackbar": "^4.0.0",
-    "yargs-parser": "^16.1.0"
+    "yargs-parser": "^19.0.4"
   },
   "description": ""
 }
