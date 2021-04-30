@@ -2,24 +2,27 @@ import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
 import { createStore } from 'lib/store/index';
+import router from 'router';
 import app from './app';
 
 import 'jquery';
 import 'bootstrap';
 
+// import UnitTab from '../components/UnitTab/main.vue';
+
 const store = createStore([
     'common',
 ]);
 
-console.log(111);
 const Page = new Vue({
     el: '#appBox',
     components: {
+        MainPage: () => import('components/MainPage/main.vue'),
+        // UnitTab,
     },
     data(){
         return {
-            input: 1,
-            popstats: false,
+            input: 'here',
         };
     },
     computed: {
@@ -30,13 +33,11 @@ const Page = new Vue({
 
     },
     mounted(){
-        const that = this;
-        that.init();
     },
     methods: {
         init(){
-            this.input = 2;
         },
     },
     store,
+    router,
 });
