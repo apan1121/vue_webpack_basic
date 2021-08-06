@@ -1,7 +1,5 @@
 <template>
-    <div>
-        B Tab
-    </div>
+    <div>B Page</div>
 </template>
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex';
@@ -20,6 +18,8 @@ export default {
         return {};
     },
     computed: {
+        ...mapGetters([
+        ]),
     },
     watch: {
     },

@@ -2,18 +2,17 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-// const UnitTab = () => import('components/UnitTab/main.vue');
-
 
 const routes = [
-//     // 动态路径参数 以冒号开头
     {
         path: '/',
-        component: () => import('components/ATab/main.vue'),
+        name: 'A',
+        component: () => import('components/A/main.vue'),
     },
     {
-        path: '/summary',
-        component: () => import('components/BTab/main.vue'),
+        path: '/B',
+        name: 'B',
+        component: () => import('components/B/main.vue'),
     },
 ];
 

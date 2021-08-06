@@ -19,22 +19,9 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'PageSetting',
         ]),
     },
     watch: {
-        PageSetting(newVal){
-            const that = this;
-            if (newVal.width) {
-                if (newVal.width < that.pc_min_size) {
-                    that.mode_type = 'mobile';
-                } else {
-                    that.mode_type = 'pc';
-                }
-            } else {
-                that.mode_type = newVal.mode_type;
-            }
-        },
     },
     created(){},
     mounted(){},

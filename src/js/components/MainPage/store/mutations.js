@@ -6,6 +6,10 @@ const main = {
     //     DiscussSortDirection[params.discussBoxId] = params.sortDirection;
     //     state.DiscussSortDirection = DiscussSortDirection;
     // },
+
+    CheckAdBlock(state, data){
+        state.adBlocked = data;
+    },
 };
 
 export default main;

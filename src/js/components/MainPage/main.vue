@@ -1,13 +1,20 @@
 <template>
-    <div style="background: #F00;">
-        <router-link :to="{ path: '/'}">A</router-link>
-        <router-link :to="{ path: '/summary'}">B</router-link>
+    <div class="vue-webpack-basic">
+        <router-link class="nav-link" :to="{ name: 'A'}">
+            <span>A</span>
+        </router-link>
+        <router-link class="nav-link" :to="{ name: 'B'}">
+            <span>B</span>
+        </router-link>
         <router-view></router-view>
     </div>
 </template>
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex';
+import { detectAnyAdblocker } from 'just-detect-adblock';
 
+
+const pc_min_size = 567;
 // import $ from 'jquery';
 // import 'bootstrap';
 
@@ -23,30 +30,44 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'PageSetting',
         ]),
-    },
-    watch: {
-        PageSetting(newVal){
-            const that = this;
-            if (newVal.width) {
-                if (newVal.width < that.pc_min_size) {
-                    that.mode_type = 'mobile';
-                } else {
-                    that.mode_type = 'pc';
-                }
-            } else {
-                that.mode_type = newVal.mode_type;
-            }
+        route(){
+            return this.$route;
         },
     },
+    watch: {
+    },
     created(){},
-    mounted(){},
+    mounted(){
+        this.init();
+    },
     updated(){},
     destroyed(){},
     methods: {
         ...mapActions({}),
-        ...mapMutations({}),
+        ...mapMutations({
+            SetPageSetting: 'SetPageSetting',
+            CheckAdBlock: 'CheckAdBlock',
+        }),
+        init(){
+            const that = this;
+            $(window).bind('resize', () => {
+                clearTimeout(that.windowResizeTimer);
+                that.windowResizeTimer = setTimeout(() => {
+                    let mode_type = 'pc';
+                    const width = $('body').width();
+                    if (width < pc_min_size) {
+                        mode_type = 'mobile';
+                    }
+                    that.SetPageSetting({ mode_type, width });
+                }, 100);
+            }).trigger('resize');
+
+            /* 偵測 adblocker */
+            detectAnyAdblocker().then((detected) => {
+                that.CheckAdBlock(detected);
+            });
+        },
     },
 };
 </script>

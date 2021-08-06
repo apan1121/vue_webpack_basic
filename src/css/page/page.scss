@@ -1,5 +1,22 @@
+@import '../common/_variable.scss';
+
 .imgLiquidFill{
     img {
         display: none;
     }
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.container {
+    max-width: calc(100% - 50px)!important;
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%!important;
+    }
+}
+

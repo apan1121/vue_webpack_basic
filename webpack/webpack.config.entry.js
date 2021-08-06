@@ -83,8 +83,8 @@ if (1) {
     const IMG_DIR = path.resolve(__dirname, '../src/img');
     const IMG_DIR_PUBLIC = path.resolve(__dirname, `${PUBLIC_DIR}/img`);
 
-    // const ICOMOON_FONT_DIR = path.resolve(__dirname, '../src/css/icomoon/');
-    // const ICOMOON_FONT_PUBLIC_DIR = path.resolve(__dirname, `${PUBLIC_DIR}/css/icomoon/`);
+    const ICOMOON_FONT_DIR = path.resolve(__dirname, '../src/css/icomoon/');
+    const ICOMOON_FONT_PUBLIC_DIR = path.resolve(__dirname, `${PUBLIC_DIR}/css/icomoon/`);
 
     // const CSS_VENDOR_DIR = path.resolve(__dirname, '../src/css/vendor/');
     // const CSS_VENDOR_PUBLIC_DIR = path.resolve(__dirname, `${PUBLIC_DIR}/css/vendor/`);
@@ -94,7 +94,7 @@ if (1) {
 
     const copyEntry = {};
     copyEntry[IMG_DIR] = IMG_DIR_PUBLIC;
-    // copyEntry[ICOMOON_FONT_DIR] = ICOMOON_FONT_PUBLIC_DIR;
+    copyEntry[ICOMOON_FONT_DIR] = ICOMOON_FONT_PUBLIC_DIR;
     // copyEntry[CSS_VENDOR_DIR] = CSS_VENDOR_PUBLIC_DIR;
     // copyEntry[JS_VENDOR_DIR] = JS_VENDOR_PUBLIC_DIR;
 
