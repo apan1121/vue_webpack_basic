@@ -1,8 +1,8 @@
 import { createApp, defineAsyncComponent } from 'vue';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
-import './app.js';
 import { createRoutes } from 'router';
 import { createStores } from 'lib/store/index';
+import './app';
 
 
 const store = createStores([

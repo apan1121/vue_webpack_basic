@@ -13,7 +13,6 @@
 import { mapActions, mapMutations, mapGetters } from 'vuex';
 // import { detectAnyAdblocker } from 'just-detect-adblock';
 
-
 const pc_min_size = 567;
 // import $ from 'jquery';
 // import 'bootstrap';
@@ -43,7 +42,7 @@ export default {
         this.init();
     },
     updated(){},
-    destroyed(){},
+    unmounted(){},
     methods: {
         ...mapActions({}),
         ...mapMutations({
