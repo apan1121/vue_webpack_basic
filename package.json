@@ -1,7 +1,7 @@
 {
-  "name": "lavueadmin",
+  "name": "vue3_webpack",
   "version": "1.0.0",
-  "description": "lavueadmin",
+  "description": "Vue3 Webpack",
   "main": "",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --mode development --config ./webpack5/webpack.config.js --color --hot --watch",
@@ -16,9 +16,10 @@
     "build": "npm run clean:before && npm run build:dll:prod && npm run build:prod && npm run clean:after"
   },
   "keywords": [
-    "lavueadmin"
+    "Vue3",
+    "Webpack5"
   ],
-  "author": "lavueadmin",
+  "author": "byron chen",
   "license": "ISC",
   "dependencies": {
     "acorn": "^8.8.2",
@@ -44,7 +45,6 @@
     "js-cookie": "^2.2.0",
     "js-video-url-parser": "^0.5.1",
     "just-detect-adblock": "^1.1.0",
-    "marked": "^1.1.1",
     "md5": "^2.3.0",
     "moment": "^2.29.3",
     "node-pre-gyp": "^0.13.0",
@@ -74,13 +74,8 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
-    "@storybook/addon-actions": "^6.3.9",
-    "@storybook/addon-essentials": "^6.5.7",
-    "@storybook/addon-links": "^6.3.8",
-    "@storybook/vue": "^6.5.7",
     "@vue/cli": "^4.5.15",
     "@vue/compiler-sfc": "^3.2.29",
-    "@vue/test-utils": "^1.1.2",
     "autoprefixer": "^9.8.8",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.3",
