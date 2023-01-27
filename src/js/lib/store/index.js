@@ -1,17 +1,18 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
+// import Vue from 'vue';
+// import Vuex from 'vuex';
 
 import actionsStorage from './actions/index';
 import stateStorage from './state/index';
 import mutationsStorage from './mutations/index';
 import gettersStorage from './getters/index';
 
-
-Vue.use(Vuex);
+// Vue.use(Vuex);
 export default {
+
 };
 
-export const createStore = (params) => {
+export const createStores = (params) => {
     let actions = {};
     let state = {};
     let mutations = {};
@@ -26,19 +27,19 @@ export const createStore = (params) => {
         while (keys.length > 0) {
             key = keys.shift();
 
-            if ([undefined].indexOf(tmpActions[key]) === -1) {
+            if ([undefined].indexOf(tmpActions[key]) == -1) {
                 tmpActions = tmpActions[key];
             }
 
-            if ([undefined].indexOf(tmpState[key]) === -1) {
+            if ([undefined].indexOf(tmpState[key]) == -1) {
                 tmpState = tmpState[key];
             }
 
-            if ([undefined].indexOf(tmpMutations[key]) === -1) {
+            if ([undefined].indexOf(tmpMutations[key]) == -1) {
                 tmpMutations = tmpMutations[key];
             }
 
-            if ([undefined].indexOf(tmpGetters[key]) === -1) {
+            if ([undefined].indexOf(tmpGetters[key]) == -1) {
                 tmpGetters = tmpGetters[key];
             }
         }
@@ -52,7 +53,7 @@ export const createStore = (params) => {
     //     // console.log({...actions}, {...state}, {...mutations}, {...getters});
     // }
 
-    return new Vuex.Store({
+    return createStore({
         actions,
         state,
         mutations,

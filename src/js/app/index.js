@@ -1,29 +1,22 @@
-import Vue from 'vue';
-import { mapActions, mapGetters } from 'vuex';
-import router from 'router';
+import { createApp, defineAsyncComponent } from 'vue';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
+import './app.js';
+import { createRoutes } from 'router';
+import { createStores } from 'lib/store/index';
 
 
-import app from './app';
-
-import { createStore } from 'lib/store/index';
-import { jsVars } from 'lib/common/util';
-
-import 'jquery';
-import 'bootstrap';
-
-
-const store = createStore([
+const store = createStores([
     'common',
 ]);
+const router = createRoutes(store);
 
-const Page = new Vue({
-    el: '#appBox',
+const app = createApp({
     components: {
-        MainPage: () => import('components/MainPage/main.vue'),
+        MainPage: defineAsyncComponent(() => import('components/MainPage/main.vue')),
     },
+    filters: {},
     data(){
         return {
-            input: 'here',
         };
     },
     computed: {
@@ -31,14 +24,22 @@ const Page = new Vue({
         ]),
     },
     watch: {
-
+    },
+    created(){
     },
     mounted(){
+        const that = this;
+        that.int();
     },
     methods: {
-        init(){
+        int(){
         },
+        ...mapActions([]),
+        ...mapMutations([]),
     },
     store,
-    router,
 });
+
+app.use(store);
+app.use(router);
+app.mount('#appBox');

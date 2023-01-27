@@ -37,15 +37,45 @@
 
     <script>
         var jsVars = {};
-    </script>
-</head>
-<body>
-    <div id="appBox" cz-shortcut-listen="true">
-        <main-page></main-page>
-    </div>
-    <script>
         var v = new Date().getTime();
-        var body = document.querySelector('body');
+        var head = document.querySelector('head');
+
+
+        var setNode = function(url, type, index){
+            var node = document.createElement('div');
+            switch (type) {
+                case 'link':
+                    node = document.createElement('link');
+                    node.rel = "stylesheet";
+                    node.href = url + '?v=' + v;
+                    break;
+                case 'script':
+                    node = document.createElement('script');
+                    node.src = url + '?v=' + v;
+                    node.dataset.bundle = 1;
+                    node.dataset.ready = 0;
+                    node.onload = function(){
+                        this.dataset.ready = 1;
+                    };
+                    break;
+                default:
+                    break;
+            }
+            head.appendChild(node);
+        };
+
+        // var setCssNode = function(url){
+        //     var link = document.createElement('link');
+        //     link.rel = "stylesheet";
+        //     link.href = url + '?v=' + v;
+        //     body.appendChild(link);
+        // };
+
+        // var setJsNode = function(url){
+        //     var script = document.createElement('script');
+        //     script.src = url + '?v=' + v;
+        //     body.appendChild(script);
+        // };
 
         var css_links = [
             "./dist/css/page/page.css",
@@ -53,23 +83,45 @@
         ];
 
         for (var cssLinkIndex in css_links) {
-            var link = document.createElement('link');
-            link.rel = "stylesheet";
-            link.href = css_links[cssLinkIndex] + '?v=' + v;
-            body.appendChild(link);
+            setNode(css_links[cssLinkIndex], 'link');
         }
 
         var js_links = [
-            "./dist/js/chunk/node_modules.bundle.js",
-            "./dist/js/chunk/vendor.bundle.js",
-            "./dist/js/app/index.bundle.js"
+            "./dist/js/dll/library.dll.bundle.js",
+            "./dist/js/dll/vendor.dll.bundle.js",
+            './dist/js/chunk/lib.bundle.js',
+            './dist/js/chunk/node_modules.bundle.js',
         ];
 
         for (var jsLinkIndex in js_links) {
-            var script = document.createElement('script');
-            script.src = js_links[jsLinkIndex] + '?v=' + v;
-            body.appendChild(script);
+            var url = js_links[jsLinkIndex];
+            setNode(url, 'script');
         }
+    </script>
+</head>
+<body>
+    <div id="appBox" cz-shortcut-listen="true">
+        <main-page></main-page>
+    </div>
+    <script>
+        var readyToLoadTimer = null;
+        clearInterval(readyToLoadTimer);
+        readyToLoadTimer = setInterval(function(){
+            var scripts = document.querySelectorAll('script');
+            var canLoad = true;
+            for (var index in scripts) {
+                if (scripts[index].src && typeof scripts[index].dataset.bundle !== 'undefined'){
+                    if (scripts[index].dataset.ready == 0) {
+                        canLoad = false;
+                        break;
+                    }
+                }
+            }
+            if (canLoad) {
+                clearInterval(readyToLoadTimer);
+                setNode("./dist/js/app/index.bundle.js", 'script');
+            }
+        }, 1);
     </script>
 
 

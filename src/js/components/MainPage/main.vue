@@ -11,7 +11,7 @@
 </template>
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex';
-import { detectAnyAdblocker } from 'just-detect-adblock';
+// import { detectAnyAdblocker } from 'just-detect-adblock';
 
 
 const pc_min_size = 567;
@@ -22,6 +22,7 @@ const pc_min_size = 567;
 // import { string, jsVars, popup, trackJS, localStorage, ppPanel } from 'lib/common/util';
 
 export default {
+    name: 'MainPage',
     components: {},
     filters: {},
     props: {},
@@ -46,27 +47,27 @@ export default {
     methods: {
         ...mapActions({}),
         ...mapMutations({
-            SetPageSetting: 'SetPageSetting',
-            CheckAdBlock: 'CheckAdBlock',
+            // SetPageSetting: 'SetPageSetting',
+            // CheckAdBlock: 'CheckAdBlock',
         }),
         init(){
-            const that = this;
-            $(window).bind('resize', () => {
-                clearTimeout(that.windowResizeTimer);
-                that.windowResizeTimer = setTimeout(() => {
-                    let mode_type = 'pc';
-                    const width = $('body').width();
-                    if (width < pc_min_size) {
-                        mode_type = 'mobile';
-                    }
-                    that.SetPageSetting({ mode_type, width });
-                }, 100);
-            }).trigger('resize');
+            // const that = this;
+            // $(window).bind('resize', () => {
+            //     clearTimeout(that.windowResizeTimer);
+            //     that.windowResizeTimer = setTimeout(() => {
+            //         let mode_type = 'pc';
+            //         const width = $('body').width();
+            //         if (width < pc_min_size) {
+            //             mode_type = 'mobile';
+            //         }
+            //         that.SetPageSetting({ mode_type, width });
+            //     }, 100);
+            // }).trigger('resize');
 
-            /* 偵測 adblocker */
-            detectAnyAdblocker().then((detected) => {
-                that.CheckAdBlock(detected);
-            });
+            // /* 偵測 adblocker */
+            // detectAnyAdblocker().then((detected) => {
+            //     that.CheckAdBlock(detected);
+            // });
         },
     },
 };
