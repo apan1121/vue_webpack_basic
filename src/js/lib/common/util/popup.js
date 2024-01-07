@@ -99,7 +99,7 @@ const info = (msgObj, confirm, cancel) => {
     executeSwal(msgConfig, confirm, cancel);
 };
 
-const confrim = (msgObj, confirm, cancel) => {
+const confirm = (msgObj, confirm, cancel) => {
     const msgConfig = {
         ...config,
         icon: 'question',
@@ -122,7 +122,7 @@ const popup = {
     info,
     loading,
     close,
-    confrim,
+    confirm,
 };
 
 export default popup;

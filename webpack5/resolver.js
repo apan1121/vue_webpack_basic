@@ -15,7 +15,6 @@ module.exports = {
             router: path.join(JS_DIR, '/router'),
             vue: 'vue/dist/vue.esm-bundler.js',
             css: CSS_DIR,
-            storage_res: path.join(__dirname, '../storage/resources'),
         },
         extensions: ['.vue', '.jsx', '.js', '.json'],
     },

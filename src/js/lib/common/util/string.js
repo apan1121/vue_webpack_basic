@@ -372,6 +372,9 @@ const carryFormatter_func = function(num, digits){
     return (num / si[i].value).toFixed(digits).replace(rx, '$1') + si[i].symbol;
 };
 
+const randRange_func = function(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 const main = {
     deepDiffMapper: deepDiffMapper_func,
@@ -401,6 +404,7 @@ const main = {
     uuid: uuid_func,
 
     carryFormatter: carryFormatter_func,
+    randRange: randRange_func,
 };
 
 export const deepDiffMapper = deepDiffMapper_func;
@@ -417,4 +421,5 @@ export const formatSecond = formatSecond_func;
 export const toSnakeCase = toSnakeCase_func;
 export const uuid = uuid_func;
 export const carryFormatter = carryFormatter_func;
+export const randRange = randRange_func;
 export default main;

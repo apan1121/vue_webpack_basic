@@ -6,7 +6,21 @@ import mixpanel from './mixpanel';
 const main = {
     default: {
     },
+    setDefault(data){
+        this.default = {
+            ...this.default,
+            ...data,
+        };
+    },
     fbq(action, event, data){
+        if (!data) {
+            data = {};
+        }
+
+        data = {
+            ...this.default,
+            ...data,
+        };
         // console.log('fbq', action, event, data);
         if (!!window.fbq) {
             if (!!data) {
@@ -17,7 +31,14 @@ const main = {
         }
     },
     gtag(action, event, data){
-        // console.log('gtag', action, event, data);
+        if (!data) {
+            data = {};
+        }
+
+        data = {
+            ...this.default,
+            ...data,
+        };
         if (!!window.gtag) {
             if (!!data) {
                 window.gtag(action, event, data);
@@ -27,10 +48,17 @@ const main = {
         }
     },
     mixpanel(action, data){
+        if (!data) {
+            data = {};
+        }
+
+        data = {
+            ...this.default,
+            ...data,
+        };
         if (!!window.mixpanel) {
             mixpanel.track(action, data);
         }
-
     },
 };
 

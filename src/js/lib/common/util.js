@@ -6,6 +6,8 @@ import popup_module from './util/popup';
 import localStorage_module from './util/localStorage';
 import linkRegister_module from './util/linkRegister';
 import trackJS_module from './util/trackJS';
+import scrollTo_module from './util/scrollTo';
+import tutorial_module from './util/tutorial';
 
 
 const util = {
@@ -17,6 +19,8 @@ const util = {
     localStorage: localStorage_module,
     linkRegister: linkRegister_module,
     trackJS: trackJS_module,
+    scrollTo: scrollTo_module,
+    Tutorial: tutorial_module,
 };
 
 export const string = string_module;
@@ -27,4 +31,6 @@ export const popup = popup_module;
 export const localStorage = localStorage_module;
 export const linkRegister = linkRegister_module;
 export const trackJS = trackJS_module;
+export const scrollTo = scrollTo_module;
+export const Tutorial = tutorial_module;
 export default util;

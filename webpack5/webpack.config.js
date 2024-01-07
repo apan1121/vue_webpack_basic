@@ -31,11 +31,13 @@ const ENTRY = require('./webpack.config.entry');
 const JS_DIR = path.resolve(__dirname, '../src/js');
 const CSS_DIR = path.resolve(__dirname, '../src/css');
 const IMG_DIR = path.resolve(__dirname, '../src/img');
+const MP3_DIR = path.resolve(__dirname, '../src/mp3');
 
 const BUILD_DIR = path.resolve(__dirname, '../dist');
 const BUILD_JS_DIR = path.join(BUILD_DIR, '/js');
 const BUILD_CSS_DIR = path.join(BUILD_DIR, '/css');
 const BUILD_IMG_DIR = path.resolve(__dirname, '../dist/img');
+const BUILD_MP3_DIR = path.resolve(__dirname, '../dist/mp3');
 
 const library_manifest = require('../dist/js/dll/library.manifest.json');
 const vendor_manifest = require('../dist/js/dll/vendor.manifest.json');
@@ -155,6 +157,7 @@ const JS_CONFIG = {
             lib: path.join(JS_DIR, '/lib'),
             components: path.join(JS_DIR, '/components'),
             router: path.join(JS_DIR, '/router'),
+            lang: path.join(JS_DIR, '/lang'),
             vue: 'vue/dist/vue.esm-bundler.js',
             css: CSS_DIR,
             storage_res: path.join(__dirname, '../storage/resources'),
@@ -168,6 +171,10 @@ const JS_CONFIG = {
                 {
                     from: IMG_DIR,
                     to: BUILD_IMG_DIR,
+                },
+                {
+                    from: MP3_DIR,
+                    to: BUILD_MP3_DIR,
                 },
                 {
                     from: path.join(CSS_DIR, '/icomoon'),

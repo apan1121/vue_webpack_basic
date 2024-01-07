@@ -1,14 +1,18 @@
 import { createApp, defineAsyncComponent } from 'vue';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
+import './app.js';
 import { createRoutes } from 'router';
 import { createStores } from 'lib/store/index';
-import './app';
+import 'jquery';
+import 'bootstrap';
 
+import { createI18ns, mixinsI18ns } from 'lib/i18n';
 
 const store = createStores([
     'common',
 ]);
 const router = createRoutes(store);
+const i18n = createI18ns();
 
 const app = createApp({
     components: {
@@ -41,5 +45,7 @@ const app = createApp({
 });
 
 app.use(store);
+app.use(i18n);
+app.mixin(mixinsI18ns);
 app.use(router);
 app.mount('#appBox');

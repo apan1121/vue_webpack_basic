@@ -1,3 +1,4 @@
+
 /node_modules
 .env
 .env.backup
@@ -6,3 +7,9 @@
 .DS_Store
 composer.lock
 package-lock.json
+/vendor/
+/storage/
+/config/config.php
+/config/sheet.json
+
+

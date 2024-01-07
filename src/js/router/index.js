@@ -1,4 +1,5 @@
 import { jsVars, history_route, popup } from 'lib/common/util';
+import { defineAsyncComponent } from 'vue';
 
 import { createRouter, createWebHashHistory } from 'vue-router';
 

@@ -6,6 +6,7 @@
         <router-link class="nav-link" :to="{ name: 'B'}">
             <span>B</span>
         </router-link>
+        {{ $t('common.WebsiteTitle') }}
         <router-view></router-view>
     </div>
 </template>
@@ -26,7 +27,11 @@ export default {
     filters: {},
     props: {},
     data(){
-        return {};
+        return {
+            langPaths: [
+                'common',
+            ],
+        };
     },
     computed: {
         ...mapGetters([
