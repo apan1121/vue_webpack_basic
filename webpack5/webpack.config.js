@@ -11,6 +11,7 @@ const WebpackBar = require('webpackbar');
 const { VueLoaderPlugin } = require('vue-loader/dist/index');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const sass = require('sass');
 
 // loader
 const threadLoader = require('thread-loader');
@@ -133,15 +134,28 @@ const JS_CONFIG = {
                         },
                     },
                     'postcss-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            additionalData: `
+                                @use "sass:math" as *;
+                            `,
+                            // Prefer `dart-sass`
+                            implementation: sass,
+                            sassOptions: {
+                                // fiber: fibers,
+                            },
+                        },
+                    },
                     {
                         loader: 'sass-resources-loader',
                         options: {
                             resources: [
                                 path.join(CSS_DIR, '/common/_base.scss'),
-                                // path.join(CSS_DIR, '/common/_color.scss'),
+                                path.join(CSS_DIR, '/common/_color.scss'),
                                 path.join(CSS_DIR, '/commonV2/_utils.scss'),
                             ],
+
                         },
                     },
                 ],
@@ -309,7 +323,19 @@ const CSS_CONFIG = {
                         },
                     },
                     'postcss-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            additionalData: `
+                                @use "sass:math" as *;
+                            `,
+                            // Prefer `dart-sass`
+                            implementation: sass,
+                            sassOptions: {
+                                // fiber: fibers,
+                            },
+                        },
+                    },
                 ],
             },
         ],

@@ -1,3 +1,12 @@
+@function rem($value: 16px) {
+    @if type-of($value) != 'number' {
+        @error "value: #{$value}, is not a number";
+    }
+
+    @return div($value, $font-size-default) * $font-size-base;
+}
+
+
 
 // Base Value
 $font-size-default: 16px !default;
@@ -34,7 +43,7 @@ $footnote-font-size: rem(12px) !default;
 
 $spacer: 16px;
 
-$pipe-border: $spacer / 2;
+$pipe-border: div($spacer, 2);
 
 
 

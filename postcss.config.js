@@ -1,7 +1,8 @@
 module.exports = {
   plugins: [
-      require('autoprefixer')({
-          overrideBrowserslist: 'last 5 versions, not ie <= 8',
-      }),
+    require('postcss-import'),
+    require('postcss-nested'),
+    require('postcss-nested-ancestors'),
+    require('autoprefixer')
   ],
 };
