@@ -1,9 +1,12 @@
+@use "sass:math";
+@use "sass:meta";
+
 @function rem($value: 16px) {
-    @if type-of($value) != 'number' {
+    @if meta.type-of($value) != 'number' {
         @error "value: #{$value}, is not a number";
     }
 
-    @return div($value, $font-size-default) * $font-size-base;
+    @return math.div($value, $font-size-default) * $font-size-base;
 }
 
 
@@ -43,7 +46,7 @@ $footnote-font-size: rem(12px) !default;
 
 $spacer: 16px;
 
-$pipe-border: div($spacer, 2);
+$pipe-border: math.div($spacer, 2);
 
 
 

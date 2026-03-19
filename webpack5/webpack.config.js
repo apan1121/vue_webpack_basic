@@ -137,6 +137,7 @@ const JS_CONFIG = {
                     {
                         loader: 'sass-loader',
                         options: {
+                            api: 'modern',
                             additionalData: `
                                 @use "sass:math" as *;
                             `,
@@ -326,6 +327,7 @@ const CSS_CONFIG = {
                     {
                         loader: 'sass-loader',
                         options: {
+                            api: 'modern',
                             additionalData: `
                                 @use "sass:math" as *;
                             `,

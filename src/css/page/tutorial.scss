@@ -1,9 +1,10 @@
-@import "../common/variable";
+@use "sass:math";
+@use "../common/variable" as *;
 
 @keyframes ClickBubbleAnimate {
     from {
-        width: div($spacer, 2);
-        height: div($spacer, 2);
+        width: math.div($spacer, 2);
+        height: math.div($spacer, 2);
     }
     to {
         width: $spacer * 1.5;
@@ -64,8 +65,8 @@ body{
                     top: 50%;
                     left: 50%;
                     z-index: 12;
-                    width: div($spacer, 2);
-                    height: div($spacer, 2);
+                    width: math.div($spacer, 2);
+                    height: math.div($spacer, 2);
                     border-radius: 50%;
                     background: rgba($gray-700, 0.3);
                     content: '';

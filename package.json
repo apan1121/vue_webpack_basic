@@ -10,8 +10,8 @@
     "build:dll:prod": "cross-env NODE_ENV=production webpack --mode production --config ./webpack5/webpack.config.dll.js --color",
     "build:analyze": "cross-env NODE_ENV=production webpack --mode production --config-name js --config ./webpack5/webpack.config.js --color --analyze",
     "build:dll:analyze": "cross-env NODE_ENV=production webpack --mode production --config ./webpack5/webpack.config.dll.js --color --analyze",
-    "clean:before": "rm -r ./dist",
-    "clean:after": "rm -r ./dist/*/js/css_del",
+    "clean:before": "rm -rf ./dist",
+    "clean:after": "rm -rf ./dist/js/css_del",
     "dev": "npm run clean:before && npm run build:dll:dev && npm run build:dev",
     "build": "npm run clean:before && npm run build:dll:prod && npm run build:prod && npm run clean:after"
   },

@@ -1,4 +1,4 @@
-@import '../common/_variable.scss';
+@use '../common/variable' as *;
 
 #appBox{
     padding-top: 4rem;
